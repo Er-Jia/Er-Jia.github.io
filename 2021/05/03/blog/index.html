@@ -434,16 +434,11 @@
 <pre class=" language-shell"><code class="language-shell">node -v
 npm -v</code></pre>
 <img src="https://www.hualigs.cn/image/608fb202909af.jpg">
-
-<ul>
+</li>
 <li><h3 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h3><p><strong><a target="_blank" rel="noopener" href="https://git-scm.com/">git官网</a></strong></p>
 <img src="https://www.hualigs.cn/image/608fb202e8124.jpg" style="zoom:50%;">
 
 <p><strong>打开后安装，无脑下一步，看到下图代表安装完成</strong></p>
-</li>
-</ul>
-</li>
-</ul>
 <img src="https://www.hualigs.cn/image/608fb202b9116.jpg" style="zoom:50%;">
 
 <p><strong>检测是否安装成功，桌面点击右键，出现下图即安装成功</strong></p>
@@ -455,8 +450,11 @@ git --version</code></pre>
 <img src="https://www.hualigs.cn/image/608fb202c9f76.jpg" style="zoom:50%;">
 
 <img src="https://www.hualigs.cn/image/608fb202c41b3.jpg" style="zoom:50%;">
+## 配置Git用户名和邮箱
 
-<h2 id="配置Git用户名和邮箱"><a href="#配置Git用户名和邮箱" class="headerlink" title="配置Git用户名和邮箱"></a>配置Git用户名和邮箱</h2><p>首先注册一个GitHub账号</p>
+</li>
+</ul>
+<p>首先注册一个GitHub账号</p>
 <p>然后在桌面点击鼠标右键，点击Git Bash Here</p>
 <p>然后分别输入下面的两个命令，并回车：</p>
 <pre class=" language-shell"><code class="language-shell">git config --global user.name "此处填写你注册时的用户名"
@@ -508,16 +506,16 @@ hexo s</code></pre>
 或
 hexo d</code></pre>
 <p>至此Hexo博客基本部署完成，打开浏览器访问 http://用户名.github.io ，就可以看到博客效果了。</p>
-<h2 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h2><p>通过修改_config.yml中相应的字段就可以进行博客的个性化定制。<br>　　<br><strong>修改博客的标题以及作者</strong></p>
-<pre class=" language-shell"><code class="language-shell">title: 你的博客名
+<h2 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h2><p>通过修改_config.yml中相应的字段就可以进行博客的个性化定制。
+　　</p>
+<h4 id="修改博客的标题以及作者"><a href="#修改博客的标题以及作者" class="headerlink" title="修改博客的标题以及作者"></a>修改博客的标题以及作者</h4><pre class=" language-shell"><code class="language-shell">title: 你的博客名
 subtitle: 博客的副标题，有些主题支持
 description: 博客描述
 keywords: 博客关键词
 author: 作者，在文章中显示
 language: 博客语言语种   
 timezone: 时区</code></pre>
-<p><strong>修改博客的主题</strong></p>
-<p>在<a target="_blank" rel="noopener" href="https://github.com/tommy351/hexo/wiki/Themes">此处</a>浏览Hexo主题，下载相应的主题后解压放到博客目录底下的themes文件夹底下。最后需要<strong>修改博客目录下_config.yml中theme字段的值为主题名称</strong>，如下:</p>
+<h4 id="修改博客的主题"><a href="#修改博客的主题" class="headerlink" title="修改博客的主题"></a>修改博客的主题</h4><p>在<a target="_blank" rel="noopener" href="https://github.com/tommy351/hexo/wiki/Themes">此处</a>浏览Hexo主题，下载相应的主题后解压放到博客目录底下的themes文件夹底下。最后需要<strong>修改博客目录下_config.yml中theme字段的值为主题名称</strong>，如下:</p>
 <pre class=" language-shell"><code class="language-shell">    # Extensions
     ## Plugins: https://github.com/tommy351/hexo/wiki/Plugins
     ## Themes: https://github.com/tommy351/hexo/wiki/Themes
@@ -787,10 +785,10 @@ timezone: 时区</code></pre>
         clientSecret: '3bfd76d24d9c2200cb49b38c50d8c6ff8c219069',
         repo: 'gitalk',
         owner: 'er-jia',
-        admin: ['"er-jia"'],
+        admin: "er-jia",
         id: '2021-05-03T22-00-00',
         proxy: 'https://cloudflare-cors-anywhere.er-jia.workers.dev/?https://github.com/login/oauth/access_token',
-        distractionFreeMode: true  // Facebook-like distraction free mode
+        distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
     gitalk.render('gitalk-container');
