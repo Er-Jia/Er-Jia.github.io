@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="解决gitalk 403 问题, 学习">
+    <meta name="keywords" content="学习">
     <meta name="description" content="二佳的知行小屋">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>解决gitalk 403 问题 | 知行小屋</title>
+    <title>知行小屋</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/er-jia/er-jia.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/er-jia/er-jia.github.io/libs/awesome/css/all.css">
@@ -258,12 +258,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/er-jia/er-jia.github.io/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/er-jia/er-jia.github.io/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">解决gitalk 403 问题</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -378,25 +378,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">
-                                <span class="chip bg-color">技术文章</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                技术
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -405,28 +392,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-05
+                    2021-05-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-05
+                    2021-05-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    666
+                    65
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -440,61 +427,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="错误描述"><a href="#错误描述" class="headerlink" title="错误描述"></a>错误描述</h2><p>GitHub无法登录显示错误：</p>
-<p>Error: Request failed with status code 403</p>
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>点击**<a target="_blank" rel="noopener" href="https://cuiqingcai.com/30010.html">此处</a>**查看大佬分析。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h4 id="先在配置文件-config-yml的gitalk配置项中加一个proxy："><a href="#先在配置文件-config-yml的gitalk配置项中加一个proxy：" class="headerlink" title="先在配置文件_config.yml的gitalk配置项中加一个proxy："></a>先在配置文件_config.yml的gitalk配置项中加一个proxy：</h4><pre class=" language-shell"><code class="language-shell">gitalk:
-   enable: true
-   clientID: 
-   clientSecret: 
-   accessToken: 
-   repo: blog-comments
-   owner: Hanpeng-Chen
-   admin: ['Hanpeng-Chen']
-   perPage: 10
-   distractionFreeMode: true
-   language: zh-CN
-   proxy: https://netnr-proxy.cloudno.de/https://github.com/login/oauth/access_token</code></pre>
-<h4 id="然后在gitalk-ejs中加上proxy配置："><a href="#然后在gitalk-ejs中加上proxy配置：" class="headerlink" title="然后在gitalk.ejs中加上proxy配置："></a>然后在gitalk.ejs中加上proxy配置：</h4><pre class=" language-shell"><code class="language-shell">let gitalk = new Gitalk({
-        clientID: '<%- theme.gitalk.oauth.clientId %>',
-        clientSecret: '<%- theme.gitalk.oauth.clientSecret %>',
-        repo: '<%- theme.gitalk.repo %>',
-        owner: '<%- theme.gitalk.owner %>',
-        admin: <%- JSON.stringify(theme.gitalk.admin) %>,
-        id: '<%- date(page.date, 'YYYY-MM-DDTHH-mm-ss') %>',
-        proxy: '<%= theme.gitalk.proxy %>',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });</code></pre>
-<h2 id="利用cloudflare-worker搭建在线代理"><a href="#利用cloudflare-worker搭建在线代理" class="headerlink" title="利用cloudflare worker搭建在线代理"></a>利用cloudflare worker搭建在线代理</h2><p>利用CloudFlare Worker创建在线代理，不需要我们有服务器，也不需要搭建Node.js服务，只需要注册一个CloudFlare账号，创建一个Worker，部署一个JS脚本就可以了，简单方便，下面我们就来看看如何创建吧。</p>
-<p>首先你需要一个 CloudFlare 的账号，如果还没有的话就先注册一个吧：<a target="_blank" rel="noopener" href="https://dash.cloudflare.com/">点我注册</a></p>
-<p><strong>选择Workers，创建一个免费的Worker。</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/er-jia/PicGo/20210505105801.png" alt="img" style="zoom:50%;">
-
-
-
-<p><strong>自定义一个二级域名，然后创建worker。因为我之前有二级域名，所以这里是修改</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/er-jia/PicGo/20210505104106.png" alt="image-20210504234927031" style="zoom:50%;">
-
-<p><strong>进入github项目的 <a target="_blank" rel="noopener" href="https://github.com/Hanpeng-Chen/cloudflare-cors-anywhere/blob/master/index.js">index.js</a>，复制代码。</strong></p>
-<p><strong>清除脚本编辑器中的示例代码，将复制的代码粘贴进去。</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/er-jia/PicGo/20210505110428.png" alt="image-20210505110415205" style="zoom:50%;">
-
-<blockquote>
-<p>这里有个点需要注意：我们可以设置请求的黑白名单，这里的白名单我只设置了自己博客域名，大家可以根据自己的情况修改，当然也可以设置为<code>whitelist = [ ".*" ]</code>，这样的话知道你代理地址的人都可以用了，然而免费版本的每天只有10万次请求，如果用的人多了很容易就用完了，所以还是建议大家设置 whitelist。</p>
-</blockquote>
-<pre class=" language-shell"><code class="language-shell">blacklist = [ ];           // regexp for blacklisted urls
-// whitelist = [ ".*" ];     // regexp for whitelisted origins
-whitelist = [ "^http.?://www.chenhanpeng.com$", "chenhanpeng.com$" ]   //将这里改成你的域名</code></pre>
-<p>修改好之后，点击 保存并部署，如果部署正常的话，我们就可以使用我们创建的在线代理了。</p>
-<p><strong>从右侧获取到你的worker域名</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/er-jia/PicGo/20210505110835.png" alt="image-20210505110830438" style="zoom:50%;">
-
-<p><strong>在上面提到的proxy配置项修改为如下代码：</strong></p>
-<pre class=" language-shell"><code class="language-shell">proxy: https://此处为你复制的的链接/?https://github.com/login/oauth/access_token</code></pre>
-<p>重新部署我们的博客，至此，个人在线代理就搭建成功了，博客的评论功能就能正常使用了。</p>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>参考博客：<a target="_blank" rel="noopener" href="https://www.chenhanpeng.com/create-own-cors-anywhere-to-resolve-the-request-with-403/">https://www.chenhanpeng.com/create-own-cors-anywhere-to-resolve-the-request-with-403/</a></p>
-<p><strong>感谢大佬分享。</strong></p>
-<h4 id="此篇文章仅代表个人观点，希望对你有所帮助。"><a href="#此篇文章仅代表个人观点，希望对你有所帮助。" class="headerlink" title="此篇文章仅代表个人观点，希望对你有所帮助。"></a>此篇文章仅代表个人观点，希望对你有所帮助。</h4><script>
+                <hr>
+<p>title: 随 笔<br>date: 2021-04-14 00:00:00<br>type: “essay”<br>layout: “essay” </p>
+<hr>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -527,7 +463,7 @@ whitelist = [ "^http.?://www.chenhanpeng.com$", "chenhanpeng.com$" ]   //将这�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Er-Jia</a>
+                    <a href="/about" rel="external nofollow noreferrer">er-jia</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -537,7 +473,7 @@ whitelist = [ "^http.?://www.chenhanpeng.com$", "chenhanpeng.com$" ]   //将这�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://er-jia.github.io/2021/05/05/gitalk/">https://er-jia.github.io/2021/05/05/gitalk/</a>
+                    <a href="https://er-jia.github.io/essay/index.html">https://er-jia.github.io/essay/index.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -550,7 +486,7 @@ whitelist = [ "^http.?://www.chenhanpeng.com$", "chenhanpeng.com$" ]   //将这�
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Er-Jia</a>
+                    <a href="/about" target="_blank">er-jia</a>
                     !
                 </span>
             </div>
@@ -574,11 +510,7 @@ whitelist = [ "^http.?://www.chenhanpeng.com$", "chenhanpeng.com$" ]   //将这�
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">
-                                    <span class="chip bg-color">技术文章</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -753,7 +685,7 @@ whitelist = [ "^http.?://www.chenhanpeng.com$", "chenhanpeng.com$" ]   //将这�
         repo: 'gitalk',
         owner: 'er-jia',
         admin: "er-jia",
-        id: '2021-05-05T12-30-06',
+        id: '2021-05-06T20-25-30',
         proxy: 'https://cloudflare-cors-anywhere.er-jia.workers.dev/?https://github.com/login/oauth/access_token',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
@@ -784,46 +716,39 @@ whitelist = [ "^http.?://www.chenhanpeng.com$", "chenhanpeng.com$" ]   //将这�
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2021/05/05/gitalk/">
+                <a href="/essay/index.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/er-jia/er-jia.github.io/medias/featureimages/13.jpg" class="responsive-img" alt="解决gitalk 403 问题">
+                        <img src="https://cdn.jsdelivr.net/gh/er-jia/er-jia.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">解决gitalk 403 问题</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            解决gitalk 403错误 ‘Error Request failed with status code 403’
+                            
+title: 随 笔date: 2021-04-14 00:00:00type: “essay”layout: “essay” 
+
+
+        document.querySelectorAll('.github-emoji')
+ 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-06
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                    技术
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            er-jia
                             
                         </span>
                     </div>
                 </div>
 
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">
-                        <span class="chip bg-color">技术文章</span>
-                    </a>
-                    
-                </div>
                 
             </div>
         </div>
@@ -831,48 +756,42 @@ whitelist = [ "^http.?://www.chenhanpeng.com$", "chenhanpeng.com$" ]   //将这�
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/03/blog/">
+                <a href="/essay/index.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/er-jia/er-jia.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="Hexo静态博客搭建">
+                        <img src="https://cdn.jsdelivr.net/gh/er-jia/er-jia.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">Hexo静态博客搭建</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录博客搭建过程
+                            
+title: 随 笔date: 2021-04-14 00:00:00type: “essay”layout: “essay” 
+
+
+        document.querySelectorAll('.github-emoji')
+ 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-06
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/" class="post-category">
-                                    技术文章
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            er-jia
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">博客搭建</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
