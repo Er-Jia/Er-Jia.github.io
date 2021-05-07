@@ -578,10 +578,10 @@ header .go-back i {
   height: 40vh !important;
 }
 
-/* .bg-cover:after {
-    -webkit-animation: rainbow 60s infinite;
-    animation: rainbow 60s infinite;
-} */
+.bg-cover:after {
+  -webkit-animation: rainbow 60s infinite;
+  animation: rainbow 60s infinite;
+}
 
 .bg-cover:before,
 .bg-cover:after {
@@ -592,7 +592,7 @@ header .go-back i {
   display: block;
   left: 0;
   top: 0;
-  content: "";
+  /* content: ""; */
 }
 
 .bg-cover .container {
@@ -2086,28 +2086,6 @@ footer .copy-right {
 }
 
 .top-scroll .btn-floating i {
-  line-height: 48px;
-  font-size: 1.8rem;
-}
-
-/*直达评论按钮样式*/
-.comment-scroll {
-  display: none;
-  position: fixed;
-  right: 15px;
-  bottom: 135px;
-  padding-top: 15px;
-  margin-bottom: 0;
-  z-index: 998;
-}
-
-.comment-scroll .btn-floating {
-  background: linear-gradient(to bottom right, #ff9999 0%, #ff6666 100%);
-  width: 48px;
-  height: 48px;
-}
-
-.comment-scroll .btn-floating i {
   line-height: 48px;
   font-size: 1.8rem;
 }
