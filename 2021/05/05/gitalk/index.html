@@ -530,7 +530,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-25
+                    2021-08-09
                 </div>
                 
 
@@ -560,7 +560,7 @@
             <div id="articleContent">
                 <h2 id="错误描述"><a href="#错误描述" class="headerlink" title="错误描述"></a>错误描述</h2><p>GitHub无法登录显示错误：</p>
 <p>Error: Request failed with status code 403</p>
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>点击**<a target="_blank" rel="noopener" href="https://cuiqingcai.com/30010.html">此处</a>**查看大佬分析。</p>
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>点击 <strong><a target="_blank" rel="noopener" href="https://cuiqingcai.com/30010.html">此处</a></strong> 查看大佬分析。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h4 id="先在配置文件-config-yml的gitalk配置项中加一个proxy："><a href="#先在配置文件-config-yml的gitalk配置项中加一个proxy：" class="headerlink" title="先在配置文件_config.yml的gitalk配置项中加一个proxy："></a>先在配置文件_config.yml的gitalk配置项中加一个proxy：</h4><pre class=" language-shell"><code class="language-shell">gitalk:
    enable: true
    clientID: 
@@ -586,16 +586,16 @@
 <h2 id="利用cloudflare-worker搭建在线代理"><a href="#利用cloudflare-worker搭建在线代理" class="headerlink" title="利用cloudflare worker搭建在线代理"></a>利用cloudflare worker搭建在线代理</h2><p>利用CloudFlare Worker创建在线代理，不需要我们有服务器，也不需要搭建Node.js服务，只需要注册一个CloudFlare账号，创建一个Worker，部署一个JS脚本就可以了，简单方便，下面我们就来看看如何创建吧。</p>
 <p>首先你需要一个 CloudFlare 的账号，如果还没有的话就先注册一个吧：<a target="_blank" rel="noopener" href="https://dash.cloudflare.com/">点我注册</a></p>
 <p><strong>选择Workers，创建一个免费的Worker。</strong></p>
-<img src="https://github.com/er-jia/PicGo/raw/master/20210505105801.png" alt="img" style="zoom:50%;">
+<img src="https://cdn.jsdelivr.net/gh/Er-Jia/PicGo@master/20210505105801.png" alt="img" style="zoom:50%;">
 
 
 
 <p><strong>自定义一个二级域名，然后创建worker。因为我之前有二级域名，所以这里是修改</strong></p>
-<img src="https://github.com/er-jia/PicGo/raw/master/20210505104106.png" alt="image-20210504234927031" style="zoom:50%;">
+<img src="https://cdn.jsdelivr.net/gh/Er-Jia/PicGo@master/20210505104106.png" alt="image-20210504234927031" style="zoom:50%;">
 
 <p><strong>进入github项目的 <a target="_blank" rel="noopener" href="https://github.com/Hanpeng-Chen/cloudflare-cors-anywhere/blob/master/index.js">index.js</a>，复制代码。</strong></p>
 <p><strong>清除脚本编辑器中的示例代码，将复制的代码粘贴进去。</strong></p>
-<img src="https://github.com/er-jia/PicGo/raw/master/20210505110428.png" alt="image-20210505110415205" style="zoom:50%;">
+<img src="https://cdn.jsdelivr.net/gh/Er-Jia/PicGo@master/20210505110428.png" alt="image-20210505110415205" style="zoom:50%;">
 
 <blockquote>
 <p>这里有个点需要注意：我们可以设置请求的黑白名单，这里的白名单我只设置了自己博客域名，大家可以根据自己的情况修改，当然也可以设置为<code>whitelist = [ ".*" ]</code>，这样的话知道你代理地址的人都可以用了，然而免费版本的每天只有10万次请求，如果用的人多了很容易就用完了，所以还是建议大家设置 whitelist。</p>
@@ -605,7 +605,7 @@
 whitelist = [ "^http.?://www.chenhanpeng.com$", "chenhanpeng.com$" ]   //将这里改成你的域名</code></pre>
 <p>修改好之后，点击 保存并部署，如果部署正常的话，我们就可以使用我们创建的在线代理了。</p>
 <p><strong>从右侧获取到你的worker域名</strong></p>
-<img src="https://github.com/er-jia/PicGo/raw/master/20210505110835.png" alt="image-20210505110830438" style="zoom:50%;">
+<img src="https://cdn.jsdelivr.net/gh/Er-Jia/PicGo@master/20210505110835.png" alt="image-20210505110830438" style="zoom:50%;">
 
 <p><strong>在上面提到的proxy配置项修改为如下代码：</strong></p>
 <pre class=" language-shell"><code class="language-shell">proxy: https://此处为你复制的的链接/?https://github.com/login/oauth/access_token</code></pre>
